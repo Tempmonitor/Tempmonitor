@@ -1,0 +1,20 @@
+** Drc report for C:\Users\Erik\Dropbox\SECRET-UF-KAWAII\KiCad Project\TempMonitor.kicad_pcb **
+** Created on  **
+
+** Found 4 DRC errors **
+ErrType(19): Pad near pad
+    @ (148,322 mm,133,124 mm): Pad 8 on B.Cu, Non-copper of U9
+    @ (148,872 mm,132,574 mm): Pad 9 on B.Cu, Non-copper of U9
+ErrType(19): Pad near pad
+    @ (148,322 mm,136,624 mm): Pad 1 on B.Cu, Non-copper of U9
+    @ (148,872 mm,137,174 mm): Pad 32 on B.Cu, Non-copper of U9
+ErrType(19): Pad near pad
+    @ (152,372 mm,132,574 mm): Pad 16 on B.Cu, Non-copper of U9
+    @ (152,922 mm,133,124 mm): Pad 17 on B.Cu, Non-copper of U9
+ErrType(19): Pad near pad
+    @ (152,372 mm,137,174 mm): Pad 25 on B.Cu, Non-copper of U9
+    @ (152,922 mm,136,624 mm): Pad 24 on B.Cu, Non-copper of U9
+
+** Found 0 unconnected pads **
+
+** End of Report **
