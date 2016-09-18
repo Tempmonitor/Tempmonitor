@@ -99,24 +99,24 @@
             this.toolStripSeparator1,
             this.exitToolStripMenuItem});
             this.contextMenuStrip_notifyIcon.Name = "contextMenuStrip_notifyIcon";
-            this.contextMenuStrip_notifyIcon.Size = new System.Drawing.Size(153, 76);
+            this.contextMenuStrip_notifyIcon.Size = new System.Drawing.Size(134, 54);
             // 
             // openHideToolStripMenuItem
             // 
             this.openHideToolStripMenuItem.Name = "openHideToolStripMenuItem";
-            this.openHideToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openHideToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.openHideToolStripMenuItem.Text = "Open/Hide";
             this.openHideToolStripMenuItem.Click += new System.EventHandler(this.openHideToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(130, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -268,6 +268,7 @@
             this.button_RestoreDefaults.TabIndex = 13;
             this.button_RestoreDefaults.Text = "Defaults";
             this.button_RestoreDefaults.UseVisualStyleBackColor = true;
+            this.button_RestoreDefaults.Click += new System.EventHandler(this.button_RestoreDefaults_Click);
             // 
             // checkBox_Autostart
             // 
@@ -376,6 +377,7 @@
             this.Name = "mainform";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Temp monitor";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.mainform_FormClosing);
             this.Load += new System.EventHandler(this.mainform_Load);
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
