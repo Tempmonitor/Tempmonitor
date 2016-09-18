@@ -11,20 +11,9 @@ using System.Windows.Forms;
 namespace TempmonitorHost
 {
 
-
     public partial class mainform : Form
     {
-
-        string[] AvailableData = new string[] {
-            "CPU temp",
-            "CPU load",
-            "GPU load",
-            "GPU temp",
-            "RAM usage",
-            "Disc usage",
-            "Fan speed"
-        };   
-   
+           
         public mainform()
         {
             InitializeComponent();
