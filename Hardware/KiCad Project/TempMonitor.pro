@@ -1,4 +1,4 @@
-update=16-09-06 15:22:40
+update=16-09-22 23:25:54
 version=1
 last_client=kicad
 [pcbnew]
@@ -106,3 +106,13 @@ LibName74=ttl_ieee
 LibName75=video
 LibName76=Xicor
 LibName77=Zilog
+[schematic_editor]
+version=1
+PageLayoutDescrFile=
+PlotDirectoryName=
+SubpartIdSeparator=0
+SubpartFirstId=65
+NetFmtName=
+SpiceForceRefPrefix=0
+SpiceUseNetNumbers=0
+LabSize=60
