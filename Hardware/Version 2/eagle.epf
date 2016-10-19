@@ -368,6 +368,7 @@ UsedLibrary="/opt/eagle-7.6.0/lbr/xilinx-xcv.lbr"
 UsedLibrary="/opt/eagle-7.6.0/lbr/zetex.lbr"
 UsedLibrary="/opt/eagle-7.6.0/lbr/zilog.lbr"
 UsedLibrary="/opt/eagle-7.6.0/lbr/Adafruit-Eagle-Library/adafruit.lbr"
+UsedLibrary="lbr/TempMonitor.lbr"
 
 [Win_1]
 Type="Control Panel"
