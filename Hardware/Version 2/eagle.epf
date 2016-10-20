@@ -369,6 +369,7 @@ UsedLibrary="/opt/eagle-7.6.0/lbr/zetex.lbr"
 UsedLibrary="/opt/eagle-7.6.0/lbr/zilog.lbr"
 UsedLibrary="/opt/eagle-7.6.0/lbr/Adafruit-Eagle-Library/adafruit.lbr"
 UsedLibrary="lbr/TempMonitor.lbr"
+UsedLibrary="/opt/eagle-7.6.0/lbr/Wuerth_Elektronik_eiCan_Communication_Connectors_STENCIL.lbr"
 
 [Win_1]
 Type="Control Panel"
