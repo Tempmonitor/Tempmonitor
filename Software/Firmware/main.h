@@ -36,8 +36,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
     #include <avr/pgmspace.h>
     #include "usbdrv.h"
 
-    #include "shiftout.h"
-    #include "display.h"
+    #include "resources/shiftout.h"
+    #include "resources/display.h"
 
 
 #endif // _TEMPMONITOR_H_
