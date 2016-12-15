@@ -16,40 +16,36 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 --------------------------------------------------------------------------*/
 
-#ifndef _SHIFTOUT_H_
-#define _SHIFTOUT_H_
+#ifndef _DISPLAY_H_
+#define _DISPLAY_H_
 
-/* Shift out one byte */
-void ShiftOutByte(unsigned char data)
+#include <avr/interrupt.h>
+
+#include "shiftout.h"
+
+unsigned char display_raw_buffer[5];
+unsigned char display_values[4];
+unsigned char display_column = 0;
+
+void DisplayInit()
 {
-	for(unsigned char x = 0; x != 8; x++)
-	{
-		if(data & (1 << 7))
-			SHIFT_PORT |= 1 << DATA_PIN;
-
-		_delay_us(1);
-		SHIFT_PORT |= 1 << CLOCK_PIN;
-		_delay_us(1);
-		SHIFT_PORT &= ~(1 << CLOCK_PIN) & ~(1 << DATA_PIN);
-		data = data << 1;
-	}
+    //Configure interrupts
+    //Configure timer0
 }
 
-/* Toggle latch pin to update shift registers */
-void ShiftOutUpdate(void)
+void DisplayWrite(unsigned char display_number, unsigned int value)
 {
-	SHIFT_PORT |= 1 << LATCH_PIN;
-	_delay_us(1);
-	SHIFT_PORT &= ~(1 << LATCH_PIN);
-	_delay_us(1);
+
 }
 
-/* Shift out an array of bytes */
-void ShiftOutBytes(unsigned char *data, unsigned char bytes)
+void DisplayUpdateBuffer()
 {
-    for(unsigned char counter = 0; counter != bytes; counter++)
-    {
-        ShiftOutByte(data[counter]);
-    }
+
 }
-#endif // _SHIFTOUT_H_
+
+ISR(TIMER0_OVF_vect)
+{
+    //Update display
+}
+
+#endif // _DISPLAY_H_

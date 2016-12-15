@@ -6,13 +6,13 @@
 # Copyright: (c) 2008 by OBJECTIVE DEVELOPMENT Software GmbH
 # License: GNU GPL v2 (see License.txt), GNU GPL v3 or proprietary (CommercialLicense.txt)
 
-DEVICE  = attiny45
+DEVICE  = attiny85
 F_CPU   = 16500000	# in Hz
 FUSE_L  = # see below for fuse values for particular devices
 FUSE_H  = 
 AVRDUDE = avrdude -c usbasp -p $(DEVICE) # edit this line for your programmer
 
-CFLAGS  = -Iusbdrv -I. -DDEBUG_LEVEL=0
+CFLAGS  = -Iusbdrv -I. -DDEBUG_LEVEL=0 -std=c99
 OBJECTS = usbdrv/usbdrv.o usbdrv/usbdrvasm.o usbdrv/oddebug.o main.o
 
 COMPILE = avr-gcc -Wall -Os -DF_CPU=$(F_CPU) $(CFLAGS) -mmcu=$(DEVICE)
@@ -152,8 +152,7 @@ main.elf: usbdrv $(OBJECTS)	# usbdrv dependency only needed because we copy it
 main.hex: main.elf
 	rm -f main.hex main.eep.hex
 	avr-objcopy -j .text -j .data -O ihex main.elf main.hex
-	avr-size main.hex
-
+	avr-size -C --mcu=$(DEVICE) main.elf
 # debugging targets:
 
 disasm:	main.elf

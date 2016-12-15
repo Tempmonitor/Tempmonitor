@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Temp monitor" />
+		<Option makefile_is_custom="1" />
+		<Option pch_mode="2" />
+		<Option compiler="avr-gcc" />
+		<Build>
+			<Target title="hex">
+				<Option output="Tempmonitor" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="avr-gcc" />
+			</Target>
+			<Target title="clean">
+				<Option output="Tempmonitor" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="avr-gcc" />
+			</Target>
+		</Build>
+		<Unit filename="Makefile" />
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="main.h" />
+		<Unit filename="shiftout.h" />
+		<Unit filename="usbconfig.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
