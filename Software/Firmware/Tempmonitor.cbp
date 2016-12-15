@@ -23,7 +23,8 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="main.h" />
-		<Unit filename="shiftout.h" />
+		<Unit filename="resources/display.h" />
+		<Unit filename="resources/shiftout.h" />
 		<Unit filename="usbconfig.h" />
 		<Extensions>
 			<code_completion />
