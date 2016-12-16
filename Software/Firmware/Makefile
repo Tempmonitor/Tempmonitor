@@ -6,10 +6,10 @@
 # Copyright: (c) 2008 by OBJECTIVE DEVELOPMENT Software GmbH
 # License: GNU GPL v2 (see License.txt), GNU GPL v3 or proprietary (CommercialLicense.txt)
 
-DEVICE  = attiny85
+DEVICE  = attiny45
 F_CPU   = 16500000	# in Hz
 FUSE_L  = # see below for fuse values for particular devices
-FUSE_H  = 
+FUSE_H  =
 AVRDUDE = avrdude -c usbasp -p $(DEVICE) # edit this line for your programmer
 
 CFLAGS  = -Iusbdrv -I. -DDEBUG_LEVEL=0 -std=c99
@@ -70,7 +70,7 @@ COMPILE = avr-gcc -Wall -Os -DF_CPU=$(F_CPU) $(CFLAGS) -mmcu=$(DEVICE)
 #        +-------------------- CKDIV8 (divide clock by 8 -> don't divide)
 # ATMega*5 FUSE_H (Fuse high byte):
 # 0xdd = 1 1 0 1   1 1 0 1
-#        ^ ^ ^ ^   ^ \-+-/ 
+#        ^ ^ ^ ^   ^ \-+-/
 #        | | | |   |   +------ BODLEVEL 2..0 (brownout trigger level -> 2.7V)
 #        | | | |   +---------- EESAVE (preserve EEPROM on Chip Erase -> not preserved)
 #        | | | +-------------- WDTON (watchdog timer always on -> disable)

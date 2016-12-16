@@ -23,9 +23,11 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "shiftout.h"
 
+const uchar display_map[] = {0b01111110, 0b01000010, 0b00110111, 0b01100111,0b01001011, 0b01101101, 0b01111101, 0b01000110, 0b01111111, 0b01001111};
+
 unsigned char display_raw_buffer[5];
-unsigned char display_values[4];
-unsigned char display_column = 0;
+unsigned char display_buffer[12];
+unsigned char display_column = 2;
 
 void DisplayInit()
 {
@@ -38,14 +40,28 @@ void DisplayWrite(unsigned char display_number, unsigned int value)
 
 }
 
-void DisplayUpdateBuffer()
+void DisplayUpdateRawBuffer()
 {
+    //Copies values from display buffer to raw buffer
+    for(uint8_t row = 0; row != 4; row++)
+    {
+        display_raw_buffer[row] = display_buffer[(row * 3) + display_column];
+    }
 
+    //Connect correct column to ground
+    display_raw_buffer[4] = 1 << display_column;
+
+    //loop display column 2 to 0
+    if(display_column != 0)
+        display_column--;
+    else
+        display_column = 2;
 }
 
 ISR(TIMER0_OVF_vect)
 {
-    //Update display
+    //Shift out raw buffer
+    ShiftOutBytes(display_raw_buffer, 5);
 }
 
 #endif // _DISPLAY_H_

@@ -7,6 +7,13 @@
  * License: GNU GPL v2 (see License.txt), GNU GPL v3 or proprietary (CommercialLicense.txt)
  */
 
+ /*
+    Modified by Temp monitor UF for Temp monitor project.
+    Last modification:
+*/
+
+
+
 #ifndef __usbconfig_h_included__
 #define __usbconfig_h_included__
 
@@ -159,7 +166,14 @@ section at the end of this file).
  * proceed, do a return after doing your things. One possible application
  * (besides debugging) is to flash a status LED on each packet.
  */
-/* #define USB_RESET_HOOK(resetStarts)     if(!resetStarts){hadUsbReset();} */
+
+//Modified by Temp monitor UF
+#define USB_RESET_HOOK(resetStarts)     if(!resetStarts){hadUsbReset();}
+
+#ifndef __ASSEMBLER__
+extern void hadUsbReset();
+#endif
+
 /* This macro is a hook if you need to know when an USB RESET occurs. It has
  * one parameter which distinguishes between the start of RESET state and its
  * end.

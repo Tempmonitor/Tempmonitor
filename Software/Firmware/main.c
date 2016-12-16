@@ -21,7 +21,6 @@ project hid-data written by Christian Starkjohann and licensed with GNU GPL v2.
 
 #include "main.h"
 
-const uchar display_map[] = {0b01111110, 0b01000010, 0b00110111, 0b01100111,0b01001011, 0b01101101, 0b01111101, 0b01000110, 0b01111111, 0b01001111};
 
 /* USB interface */
 
@@ -139,12 +138,18 @@ int main(void)
 
         if(received != 0)
         {
-            // Process recived data from host
+            /*// Process recived data from host
             ShiftOutByte(display_map[inBuffer[0] - '0']);
-            ShiftOutUpdate();
+            ShiftOutUpdate();*/
         }
 
         usbPoll();
     }
     return 0;
+}
+
+//Add calibration for internal PLL @ 16.5 MHz
+void hadUsbReset()
+{
+
 }
