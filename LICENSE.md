@@ -1,10 +1,11 @@
-Temp monitor host software is and everything in this or subfolders, except for the following included libraries:
-USB HID Driver Library (USBHIDDRIVER.DLL) & OpenHardwareMonitor library (OpenHardwareMonitorLib.dll) 
-licensed with the MIT license. 
+Temp monitor host software and everything in this or subfolders are licensed with the MIT license, except for the included library OpenHardwareMonitor (OpenHardwareMonitorLib.dll). 
+ 
+The OpenHardwareMonitor library is licensed with the mozilla public license version 2.0.
+and its license is included in its folder. 
 
-The USB HID Driver Library is licensed with the  GNU GENERAL PUBLIC LICENSE and
-the OpenHardwareMonitor library is licensed with the mozilla public license version 2.0.
-The libraries licenses is included in its respective folder.
+Included is also HidLibrary licensed with the MIT license and copyrighted 2010 by Ultraviolet Catastrophe.  
+
+The following license applies unless otherwise written:
 
 MIT License
 
