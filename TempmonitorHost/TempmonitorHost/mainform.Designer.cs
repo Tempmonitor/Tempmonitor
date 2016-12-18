@@ -82,7 +82,9 @@
             // 
             // timer_update
             // 
+            this.timer_update.Enabled = true;
             this.timer_update.Interval = 1000;
+            this.timer_update.Tick += new System.EventHandler(this.timer_update_Tick);
             // 
             // notifyIcon
             // 

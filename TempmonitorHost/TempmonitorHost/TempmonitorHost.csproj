@@ -59,6 +59,12 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HidLibrary">
+      <HintPath>HidLibrary\HidLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenHardwareMonitorLib">
+      <HintPath>OpenHardwareMonitorLibrary\OpenHardwareMonitorLib.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -72,6 +78,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComputerInfo.cs" />
     <Compile Include="mainform.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -8,12 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using HidLibrary;
+
 namespace TempmonitorHost
 {
 
     public partial class mainform : Form
     {
-           
+        private ComputerInfo computer = new ComputerInfo();
+        private HidDevice device = HidDevices.Enumerate(0x16c0, 0x05df).FirstOrDefault();
+
+
         public mainform()
         {
             InitializeComponent();
@@ -105,6 +110,26 @@ namespace TempmonitorHost
         {
             Properties.Settings.Default.Reset();
             userSettingsLoad();
+        }
+
+        private void timer_update_Tick(object sender, EventArgs e)
+        {
+            if(device != null)
+            {
+                if (device.IsConnected)
+                    toolStripStatusLabel_connection.Text = "Connected";
+            }
+            else
+            {
+                device = HidDevices.Enumerate(0x16c0, 0x05df).FirstOrDefault();
+
+                if(device != null)
+                {
+                    device.OpenDevice();
+                }
+
+                toolStripStatusLabel_connection.Text = "Disconnected";
+            }
         }
     }
 }
