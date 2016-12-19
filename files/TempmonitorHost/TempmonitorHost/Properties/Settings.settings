@@ -1,0 +1,36 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TempmonitorHost.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="AutoRun" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="EnableDisp1" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="EnableDisp2" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="EnableDisp3" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="EnableDisp4" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="Disp1Data" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CPU temp</Value>
+    </Setting>
+    <Setting Name="Disp2Data" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CPU load</Value>
+    </Setting>
+    <Setting Name="Disp3Data" Type="System.String" Scope="User">
+      <Value Profile="(Default)">GPU temp</Value>
+    </Setting>
+    <Setting Name="Disp4Data" Type="System.String" Scope="User">
+      <Value Profile="(Default)">GPU load</Value>
+    </Setting>
+    <Setting Name="DispOn" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
