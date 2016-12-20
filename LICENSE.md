@@ -1,4 +1,4 @@
-Temp monitor is licensed with several license. The following list lists the license used for each directory and its subdirecties and files:
+Temp monitor is licensed with several license. The following list lists the license used for each directory and its subdirectories and files:
 
 * hardware/  MIT-License
 * Software/Firmware/ GNU GPLv2
