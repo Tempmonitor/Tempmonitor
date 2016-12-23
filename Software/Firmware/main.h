@@ -23,9 +23,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
     #define SHIFT_PORT	PORTB
     #define SHIFT_DDR   DDRB
 
-    #define CLOCK_PIN	PINB0
+    #define CLOCK_PIN	PINB4
     #define LATCH_PIN	PINB3
-    #define DATA_PIN	PINB4
+    #define DATA_PIN	PINB0
 
 /* Includes */
     #include <avr/io.h>

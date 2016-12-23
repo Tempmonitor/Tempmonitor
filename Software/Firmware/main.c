@@ -7,7 +7,7 @@ the Free Software Foundation; either version 2 of the License, or
 (at your option) any later version.
 
 This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
+but WITHOUT ANY W   ARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
@@ -24,8 +24,7 @@ project hid-data written by Christian Starkjohann and licensed with GNU GPL v2.
 
 /* USB interface */
 
-#define HID_INBUFFER_SIZE 32
-
+#define HIDSERIAL_INBUFFER_SIZE 32
 
 PROGMEM const char usbHidReportDescriptor[USB_CFG_HID_REPORT_DESCRIPTOR_LENGTH] = {    /* USB report descriptor */
     0x06, 0x00, 0xff,              // USAGE_PAGE (Generic Desktop)
@@ -37,14 +36,14 @@ PROGMEM const char usbHidReportDescriptor[USB_CFG_HID_REPORT_DESCRIPTOR_LENGTH] 
     0x95, 0x08,                    //   REPORT_COUNT (8)
     0x09, 0x00,                    //   USAGE (Undefined)
     0x82, 0x02, 0x01,              //   INPUT (Data,Var,Abs,Buf)
-    0x95, HID_INBUFFER_SIZE, //   REPORT_COUNT (32)
+    0x95, HIDSERIAL_INBUFFER_SIZE, //   REPORT_COUNT (32)
     0x09, 0x00,                    //   USAGE (Undefined)
     0xb2, 0x02, 0x01,              //   FEATURE (Data,Var,Abs,Buf)
     0xc0                           // END_COLLECTION
 };
 
 static uchar received = 0;
-static uchar inBuffer[HID_INBUFFER_SIZE];
+static uchar inBuffer[HIDSERIAL_INBUFFER_SIZE];
 static uchar reportId = 0;
 static uchar bytesRemaining;
 static uchar* pos;
@@ -116,6 +115,39 @@ void USBDisconnect()
     }
 }
 
+#define abs(x) ((x) > 0 ? (x) : (-x))
+
+// Called by V-USB after device reset
+void hadUsbReset() {
+    int frameLength, targetLength = (unsigned)(1499 * (double)F_CPU / 10.5e6 + 0.5);
+    int bestDeviation = 9999;
+    uchar trialCal, bestCal, step, region;
+
+    // do a binary search in regions 0-127 and 128-255 to get optimum OSCCAL
+    for(region = 0; region <= 1; region++) {
+        frameLength = 0;
+        trialCal = (region == 0) ? 0 : 128;
+
+        for(step = 64; step > 0; step >>= 1) {
+            if(frameLength < targetLength) // true for initial iteration
+                trialCal += step; // frequency too low
+            else
+                trialCal -= step; // frequency too high
+
+            OSCCAL = trialCal;
+            frameLength = usbMeasureFrameLength();
+
+            if(abs(frameLength-targetLength) < bestDeviation) {
+                bestCal = trialCal; // new optimum found
+                bestDeviation = abs(frameLength -targetLength);
+            }
+        }
+    }
+
+    OSCCAL = bestCal;
+}
+
+
 
 int main(void)
 {
@@ -131,6 +163,14 @@ int main(void)
     usbDeviceConnect();
     sei();
 
+    uint8_t g[] = {display_map[3] | _dp, display_map[1], display_map[4]};
+
+    DisplayWriteRaw(0,g);
+    DisplayWrite(1,159);
+    DisplayWrite(2,265);
+    DisplayWrite(3,359);
+    DisplayInit();
+
 	received = 0;
 
     for(;;){
@@ -138,18 +178,13 @@ int main(void)
 
         if(received != 0)
         {
-            /*// Process recived data from host
-            ShiftOutByte(display_map[inBuffer[0] - '0']);
-            ShiftOutUpdate();*/
+            DisplayWrite(0,inBuffer[0]);
+            DisplayWrite(1,inBuffer[1]);
+            DisplayWrite(2,inBuffer[2]);
+            DisplayWrite(3,inBuffer[3]);
         }
 
         usbPoll();
     }
     return 0;
-}
-
-//Add calibration for internal PLL @ 16.5 MHz
-void hadUsbReset()
-{
-
 }
