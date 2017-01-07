@@ -4,24 +4,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using OpenHardwareMonitor.Hardware; 
+using OpenHardwareMonitor.Collections;
+using OpenHardwareMonitor.Hardware;
 
-namespace TempmonitorHost
+namespace HID
 {
     class ComputerInfo
     {
 
         private Computer computer = new Computer();
 
-        private float CPUTemp, CPULoad, GPUTemp, GPULoad, RAMUsage;
+        private int CPUTemp, CPULoad, GPUTemp, GPULoad, RAMUsage;
 
+        //Constructor
         public ComputerInfo()
         {
+            computer.GPUEnabled = true;
             computer.CPUEnabled = true;
             computer.RAMEnabled = true;
-            computer.GPUEnabled = true;
-            // More to be added
+            computer.FanControllerEnabled = true;
+
             computer.Open();
+        }
+
+        //Destructor
+        ~ComputerInfo()
+        {
+            computer.Close();
         }
 
         public void Update()
@@ -35,24 +44,20 @@ namespace TempmonitorHost
                     foreach (var sensor in hardware.Sensors)
                     {
                         if (sensor.SensorType == SensorType.Temperature && sensor.Index == 0)
-                        {
-                            CPUTemp = sensor.Value.GetValueOrDefault();     // CPU Temperature value
-                        }
+                            CPUTemp = (int)sensor.Value.GetValueOrDefault();
+
                         else if (sensor.SensorType == SensorType.Load && sensor.Index == 0)
-                        {
-                            CPULoad = (int)sensor.Value.GetValueOrDefault();       // CPU Load value
-                        }
+                            CPULoad = (int)sensor.Value.GetValueOrDefault();
                     }
                 }
                 else if (hardware.HardwareType == HardwareType.RAM)
                 {
-                    hardware.Update();
-
                     float UsedRAM = 0, AvailableRAM = 0;
 
                     foreach (var sensor in hardware.Sensors)
 
                         if (sensor.SensorType == SensorType.Data)
+                        {
                             switch (sensor.Index)
                             {
                                 case 0:
@@ -63,26 +68,36 @@ namespace TempmonitorHost
                                     AvailableRAM = sensor.Value.GetValueOrDefault();
                                     break;
                             }
+                        }
 
-                    RAMUsage = (UsedRAM / (UsedRAM + AvailableRAM)) * 100;    // RAM Usage value
+                    RAMUsage = (int)((UsedRAM / (UsedRAM + AvailableRAM)) * 100);
                 }
             }
         }
 
-
-        public float GetCPUTemp()
+        public int GetCPUTemp()
         {
             return CPUTemp;
         }
-        public float GetCPULoad()
+
+        public int GetCPULoad()
         {
             return CPULoad;
         }
-        public float GetRAMUsage()
+
+        public int GetGPUTemp()
+        {
+            return GPUTemp;
+        }
+
+        public int GetGPULoad()
+        {
+            return GPULoad;
+        }
+
+        public int GetRamUsage()
         {
             return RAMUsage;
         }
-
-
     }
 }

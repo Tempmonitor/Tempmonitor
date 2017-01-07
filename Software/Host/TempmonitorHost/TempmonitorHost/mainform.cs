@@ -16,8 +16,6 @@ namespace TempmonitorHost
     public partial class mainform : Form
     {
         private ComputerInfo computer = new ComputerInfo();
-        private HidDevice device = HidDevices.Enumerate(0x16c0, 0x05df).FirstOrDefault();
-
 
         public mainform()
         {
@@ -29,9 +27,6 @@ namespace TempmonitorHost
         private void mainform_Load(object sender, EventArgs e)
         {
             notifyIcon.ShowBalloonTip(5000, "Temp monitor", "Temp monitor is running.", ToolTipIcon.Info);
-            
-            //Load user data
-            //Connect to display
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -41,7 +36,7 @@ namespace TempmonitorHost
 
         private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            this.Show();
+            Show();
         }
 
         private void openHideToolStripMenuItem_Click(object sender, EventArgs e)
@@ -114,22 +109,7 @@ namespace TempmonitorHost
 
         private void timer_update_Tick(object sender, EventArgs e)
         {
-            if(device != null)
-            {
-                if (device.IsConnected)
-                    toolStripStatusLabel_connection.Text = "Connected";
-            }
-            else
-            {
-                device = HidDevices.Enumerate(0x16c0, 0x05df).FirstOrDefault();
-
-                if(device != null)
-                {
-                    device.OpenDevice();
-                }
-
-                toolStripStatusLabel_connection.Text = "Disconnected";
-            }
+            
         }
     }
 }
