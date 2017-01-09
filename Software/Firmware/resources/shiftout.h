@@ -19,6 +19,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #ifndef _SHIFTOUT_H_
 #define _SHIFTOUT_H_
 
+#define _NOP() __asm__ __volatile__ ("nop");
+
 /* Shift out one byte */
 void ShiftOutByte(unsigned char data)
 {
@@ -27,9 +29,9 @@ void ShiftOutByte(unsigned char data)
 		if(data & (1 << 7))
 			SHIFT_PORT |= 1 << DATA_PIN;
 
-		_delay_us(1);
+		_NOP();
 		SHIFT_PORT |= 1 << CLOCK_PIN;
-		_delay_us(1);
+		_NOP();
 		SHIFT_PORT &= ~(1 << CLOCK_PIN) & ~(1 << DATA_PIN);
 		data = data << 1;
 	}
@@ -39,9 +41,9 @@ void ShiftOutByte(unsigned char data)
 void ShiftOutUpdate(void)
 {
 	SHIFT_PORT |= 1 << LATCH_PIN;
-	_delay_us(1);
+	_NOP();
 	SHIFT_PORT &= ~(1 << LATCH_PIN);
-	_delay_us(1);
+	_NOP();
 }
 
 /* Shift out an array of bytes */
