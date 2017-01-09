@@ -109,7 +109,20 @@ namespace TempmonitorHost
 
         private void timer_update_Tick(object sender, EventArgs e)
         {
-            
+            HidDevice device = HidDevices.Enumerate(0x16c0, 0x05df).FirstOrDefault();   // Connect to device
+
+            if (device != null)
+            {
+                Console.WriteLine("Found device.");
+                Console.WriteLine("Connecting to " + device.DevicePath.ToString());
+
+                device.OpenDevice();
+
+                if (device.IsConnected)
+                {
+                    toolStripStatusLabel_connection.Text = "Connected";
+                }
+            }
         }
     }
 }
