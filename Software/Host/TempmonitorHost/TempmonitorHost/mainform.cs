@@ -15,13 +15,22 @@ namespace TempmonitorHost
 
     public partial class mainform : Form
     {
+        // ID ---
+        private const int VendorId = 0x16c0;
+        private const int productId = 0x05df;
+        // ID ---
+
         private ComputerInfo computer = new ComputerInfo();
+
+        HidDevice device = HidDevices.Enumerate(VendorId, productId).FirstOrDefault();   // Connect to Temp monitor
 
         public mainform()
         {
             InitializeComponent();
 
-            userSettingsLoad();            
+            userSettingsLoad();
+
+            device.OpenDevice();
         }
 
         private void mainform_Load(object sender, EventArgs e)
@@ -109,16 +118,22 @@ namespace TempmonitorHost
 
         private void timer_update_Tick(object sender, EventArgs e)
         {
-            HidDevice device = HidDevices.Enumerate(0x16c0, 0x05df).FirstOrDefault();   // Connect to device
-
-            if (device != null)
+            if (device == null || device.IsConnected == false)    // If no connection
             {
-                Console.WriteLine("Found device.");
-                Console.WriteLine("Connecting to " + device.DevicePath.ToString());
+                toolStripStatusLabel_connection.Text = "Disconneted";
 
-                device.OpenDevice();
+                HidDevice device = HidDevices.Enumerate(VendorId, productId).FirstOrDefault();   // Retry connection
 
-                if (device.IsConnected)
+                if (device != null && device.IsConnected != false)  // If reconnection successful
+                {
+                    device.OpenDevice();
+                }
+            }
+
+            else
+            {
+
+                if (device.IsConnected) // If connection successful
                 {
                     toolStripStatusLabel_connection.Text = "Connected";
                 }
