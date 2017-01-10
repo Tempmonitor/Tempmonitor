@@ -42,7 +42,7 @@ const uchar display_map[] = {
     _a | _f | _e | _g | _e | _d | _c,   // 6
     _a | _b | _c,                       // 7
     _a | _b | _c | _d | _e | _f | _g,   // 8
-    _a | _f | _b | _g | _c,             // 9
+    _a | _f | _b | _g | _c | _d,        // 9
     _a | _f | _g | _b | _e | _d | _c    // 0
 };
 
@@ -63,9 +63,18 @@ void DisplayInit()
 
 void DisplayWrite(unsigned char display_number, unsigned int value)
 {
-        display_buffer[display_number * 3] = display_map[value / 100];
+        if(value > 99)
+            display_buffer[display_number * 3] = display_map[value / 100];
+        else
+            display_buffer[display_number * 3] = 0;
+
         value = value % 100;
-        display_buffer[(display_number * 3) + 1] = display_map[value / 10];
+
+        if(value > 9)
+            display_buffer[(display_number * 3) + 1] = display_map[value / 10];
+        else
+            display_buffer[(display_number * 3) + 1] = 0;
+
         display_buffer[(display_number * 3) + 2] = display_map[value % 10];
 }
 

@@ -182,6 +182,8 @@ int main(void)
             DisplayWrite(1,inBuffer[1]);
             DisplayWrite(2,inBuffer[2]);
             DisplayWrite(3,inBuffer[3]);
+
+            received = 0;
         }
 
         usbPoll();
