@@ -142,5 +142,17 @@ namespace TempmonitorHost.Properties {
                 this["DispOn"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
+        public int Brightness {
+            get {
+                return ((int)(this["Brightness"]));
+            }
+            set {
+                this["Brightness"] = value;
+            }
+        }
     }
 }

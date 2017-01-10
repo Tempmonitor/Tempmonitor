@@ -59,15 +59,18 @@
             this.label10 = new System.Windows.Forms.Label();
             this.checkBox_ToggleDisplay = new System.Windows.Forms.CheckBox();
             this.button_about = new System.Windows.Forms.Button();
+            this.slider_Brightness = new System.Windows.Forms.TrackBar();
+            this.label1 = new System.Windows.Forms.Label();
             this.statusStrip.SuspendLayout();
             this.contextMenuStrip_notifyIcon.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.slider_Brightness)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel_connection});
-            this.statusStrip.Location = new System.Drawing.Point(0, 240);
+            this.statusStrip.Location = new System.Drawing.Point(0, 299);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(328, 22);
             this.statusStrip.SizingGrip = false;
@@ -124,6 +127,7 @@
             // 
             // comboBox_Disp1Data
             // 
+            this.comboBox_Disp1Data.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_Disp1Data.FormattingEnabled = true;
             this.comboBox_Disp1Data.Items.AddRange(new object[] {
             "CPU temp",
@@ -213,6 +217,7 @@
             // 
             // comboBox_Disp3Data
             // 
+            this.comboBox_Disp3Data.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_Disp3Data.FormattingEnabled = true;
             this.comboBox_Disp3Data.Items.AddRange(new object[] {
             "CPU temp",
@@ -248,6 +253,7 @@
             // 
             // comboBox_Disp4Data
             // 
+            this.comboBox_Disp4Data.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_Disp4Data.FormattingEnabled = true;
             this.comboBox_Disp4Data.Items.AddRange(new object[] {
             "CPU temp",
@@ -346,11 +352,34 @@
             this.button_about.Text = "About";
             this.button_about.UseVisualStyleBackColor = true;
             // 
+            // slider_Brightness
+            // 
+            this.slider_Brightness.BackColor = System.Drawing.SystemColors.Control;
+            this.slider_Brightness.LargeChange = 1;
+            this.slider_Brightness.Location = new System.Drawing.Point(86, 241);
+            this.slider_Brightness.Maximum = 5;
+            this.slider_Brightness.Minimum = 1;
+            this.slider_Brightness.Name = "slider_Brightness";
+            this.slider_Brightness.Size = new System.Drawing.Size(104, 45);
+            this.slider_Brightness.TabIndex = 23;
+            this.slider_Brightness.Value = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 250);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 13);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "Brightness";
+            // 
             // mainform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(328, 262);
+            this.ClientSize = new System.Drawing.Size(328, 321);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.slider_Brightness);
             this.Controls.Add(this.button_about);
             this.Controls.Add(this.checkBox_ToggleDisplay);
             this.Controls.Add(this.label10);
@@ -384,6 +413,7 @@
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
             this.contextMenuStrip_notifyIcon.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.slider_Brightness)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -420,5 +450,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.CheckBox checkBox_ToggleDisplay;
         private System.Windows.Forms.Button button_about;
+        private System.Windows.Forms.TrackBar slider_Brightness;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -84,6 +84,8 @@ namespace TempmonitorHost
             checkBox_Disp3Ena.Checked = Properties.Settings.Default.EnableDisp3;
             checkBox_Disp4Ena.Checked = Properties.Settings.Default.EnableDisp4;
             checkBox_ToggleDisplay.Checked = Properties.Settings.Default.DispOn;
+            slider_Brightness.Value = Properties.Settings.Default.Brightness;
+
 
             comboBox_Disp1Data.Text = Properties.Settings.Default.Disp1Data;
             comboBox_Disp2Data.Text = Properties.Settings.Default.Disp2Data;
@@ -99,6 +101,8 @@ namespace TempmonitorHost
             Properties.Settings.Default.EnableDisp3 = checkBox_Disp3Ena.Checked;
             Properties.Settings.Default.EnableDisp4 = checkBox_Disp4Ena.Checked;
             Properties.Settings.Default.DispOn = checkBox_ToggleDisplay.Checked;
+            Properties.Settings.Default.Brightness = slider_Brightness.Value;
+
 
             Properties.Settings.Default.Disp1Data = comboBox_Disp1Data.Text;
             Properties.Settings.Default.Disp2Data = comboBox_Disp2Data.Text;
@@ -118,23 +122,31 @@ namespace TempmonitorHost
         {
             if (device == null || device.IsConnected == false)    // If no connection
             {
-                toolStripStatusLabel_connection.Text = "Disconneted";
+                toolStripStatusLabel_connection.Text = "Disconnected";
 
                 device = HidDevices.Enumerate(VendorId, productId).FirstOrDefault();   // Retry connection
 
                 if (device != null && device.IsConnected != false)  // If reconnection successful
                 {
                     device.OpenDevice();
+                    toolStripStatusLabel_connection.Text = "Connected";
                 }
             }
 
-            else
+            else   // Actual execution
             {
+                toolStripStatusLabel_connection.Text = "Running";
 
-                if (device.IsConnected) // If connection successful
-                {
-                    toolStripStatusLabel_connection.Text = "Connected";
-                }
+                byte[] outdata = new byte[8];
+                computer.Update();
+
+                outdata[1] = (byte) 14;
+                outdata[2] = (byte) 11;
+                outdata[3] = (byte) 13;
+                outdata[4] = (byte) 32;
+
+                HidReport report = new HidReport(8, new HidDeviceData(outdata, HidDeviceData.ReadStatus.NotConnected));
+                device.WriteFeatureData(outdata);
             }
         }
     }
