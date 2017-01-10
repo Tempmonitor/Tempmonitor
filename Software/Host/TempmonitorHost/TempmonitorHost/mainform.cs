@@ -22,15 +22,13 @@ namespace TempmonitorHost
 
         private ComputerInfo computer = new ComputerInfo();
 
-        HidDevice device = HidDevices.Enumerate(VendorId, productId).FirstOrDefault();   // Connect to Temp monitor
+        HidDevice device;
 
         public mainform()
         {
             InitializeComponent();
 
             userSettingsLoad();
-
-            device.OpenDevice();
         }
 
         private void mainform_Load(object sender, EventArgs e)
@@ -122,7 +120,7 @@ namespace TempmonitorHost
             {
                 toolStripStatusLabel_connection.Text = "Disconneted";
 
-                HidDevice device = HidDevices.Enumerate(VendorId, productId).FirstOrDefault();   // Retry connection
+                device = HidDevices.Enumerate(VendorId, productId).FirstOrDefault();   // Retry connection
 
                 if (device != null && device.IsConnected != false)  // If reconnection successful
                 {
