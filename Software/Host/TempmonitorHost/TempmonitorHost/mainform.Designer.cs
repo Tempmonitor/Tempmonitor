@@ -182,6 +182,7 @@
             // 
             // comboBox_Disp2Data
             // 
+            this.comboBox_Disp2Data.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_Disp2Data.FormattingEnabled = true;
             this.comboBox_Disp2Data.Items.AddRange(new object[] {
             "CPU temp",
