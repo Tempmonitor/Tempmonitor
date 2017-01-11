@@ -60,7 +60,7 @@
             this.checkBox_ToggleDisplay = new System.Windows.Forms.CheckBox();
             this.button_about = new System.Windows.Forms.Button();
             this.slider_Brightness = new System.Windows.Forms.TrackBar();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label_Brightness = new System.Windows.Forms.Label();
             this.statusStrip.SuspendLayout();
             this.contextMenuStrip_notifyIcon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.slider_Brightness)).BeginInit();
@@ -70,7 +70,7 @@
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel_connection});
-            this.statusStrip.Location = new System.Drawing.Point(0, 299);
+            this.statusStrip.Location = new System.Drawing.Point(0, 288);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(328, 22);
             this.statusStrip.SizingGrip = false;
@@ -364,21 +364,21 @@
             this.slider_Brightness.TabIndex = 23;
             this.slider_Brightness.Value = 3;
             // 
-            // label1
+            // label_Brightness
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 250);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 13);
-            this.label1.TabIndex = 24;
-            this.label1.Text = "Brightness";
+            this.label_Brightness.AutoSize = true;
+            this.label_Brightness.Location = new System.Drawing.Point(12, 250);
+            this.label_Brightness.Name = "label_Brightness";
+            this.label_Brightness.Size = new System.Drawing.Size(56, 13);
+            this.label_Brightness.TabIndex = 24;
+            this.label_Brightness.Text = "Brightness";
             // 
             // mainform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(328, 321);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(328, 310);
+            this.Controls.Add(this.label_Brightness);
             this.Controls.Add(this.slider_Brightness);
             this.Controls.Add(this.button_about);
             this.Controls.Add(this.checkBox_ToggleDisplay);
@@ -451,6 +451,6 @@
         private System.Windows.Forms.CheckBox checkBox_ToggleDisplay;
         private System.Windows.Forms.Button button_about;
         private System.Windows.Forms.TrackBar slider_Brightness;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label_Brightness;
     }
 }

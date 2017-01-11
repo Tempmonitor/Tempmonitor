@@ -140,7 +140,7 @@ namespace TempmonitorHost
                 byte[] outdata = new byte[8];
                 computer.Update();
 
-                outdata[1] = (byte) 14;
+                outdata[1] = (byte) get_value(comboBox_Disp1Data.Text, 1);
                 outdata[2] = (byte) 11;
                 outdata[3] = (byte) 13;
                 outdata[4] = (byte) 32;
@@ -148,6 +148,41 @@ namespace TempmonitorHost
                 HidReport report = new HidReport(8, new HidDeviceData(outdata, HidDeviceData.ReadStatus.NotConnected));
                 device.WriteFeatureData(outdata);
             }
+        }
+
+        private byte get_value(string resource, int display)
+        {
+            switch (resource)
+            {
+                case "CPU Temp":
+
+                    break;
+
+                case "CPU load":
+
+                    break;
+
+                case "GPU load":
+
+                    break;
+
+                case "GPU temp":
+
+                    break;
+
+                case "RAM usage":
+
+                    break;
+
+                case "Disc usage":
+
+                    break;
+
+                case "Fan speed":
+
+                    break;
+            }
+            return 0;
         }
     }
 }
