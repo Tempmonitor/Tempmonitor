@@ -66,6 +66,38 @@ namespace TempmonitorHost
 
                     RAMUsage = (UsedRAM / (UsedRAM + AvailableRAM)) * 100;    // RAM Usage value
                 }
+                else if (hardware.HardwareType == HardwareType.GpuNvidia)
+                {
+                    hardware.Update();
+
+                    foreach (var sensor in hardware.Sensors)
+                    {
+                        if (sensor.SensorType == SensorType.Temperature && sensor.Index == 0)
+                        {
+                            GPUTemp = sensor.Value.GetValueOrDefault();     // GPU Temperature value
+                        }
+                        else if (sensor.SensorType == SensorType.Load && sensor.Index == 0)
+                        {
+                            GPULoad = (int)sensor.Value.GetValueOrDefault();       // GPU Load value
+                        }
+                    }
+                }
+                else if (hardware.HardwareType == HardwareType.GpuAti)
+                {
+                    hardware.Update();
+
+                    foreach (var sensor in hardware.Sensors)
+                    {
+                        if (sensor.SensorType == SensorType.Temperature && sensor.Index == 0)
+                        {
+                            GPUTemp = sensor.Value.GetValueOrDefault();     // GPU Temperature value
+                        }
+                        else if (sensor.SensorType == SensorType.Load && sensor.Index == 0)
+                        {
+                            GPULoad = (int)sensor.Value.GetValueOrDefault();       // GPU Load value
+                        }
+                    }
+                }
             }
         }
 
@@ -83,6 +115,32 @@ namespace TempmonitorHost
             return RAMUsage;
         }
 
+        public float get_value(string resource, int display)
+        {
+            switch (resource)
+            {
+                case "CPU temp":
+                    return CPUTemp;
 
+                case "CPU load":
+                    return CPULoad;
+
+                case "GPU load":
+                    break;
+
+                case "GPU temp":
+                    break;
+
+                case "RAM usage":
+                    return RAMUsage;
+
+                case "Disc usage":
+                    break;
+
+                case "Fan speed":
+                    break;
+            }
+            return 0;
+        }
     }
 }

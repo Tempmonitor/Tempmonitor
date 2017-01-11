@@ -120,6 +120,14 @@ namespace TempmonitorHost
 
         private void timer_update_Tick(object sender, EventArgs e)
         {
+            computer.Update();
+
+            // Display sensor values in UI
+            label_Disp1Value.Text = computer.get_value(comboBox_Disp1Data.Text, 1).ToString();
+            label_Disp2Value.Text = computer.get_value(comboBox_Disp2Data.Text, 1).ToString();
+            label_Disp3Value.Text = computer.get_value(comboBox_Disp3Data.Text, 1).ToString();
+            label_Disp4Value.Text = computer.get_value(comboBox_Disp4Data.Text, 1).ToString();
+
             if (device == null || device.IsConnected == false)    // If no connection
             {
                 toolStripStatusLabel_connection.Text = "Disconnected";
@@ -138,51 +146,16 @@ namespace TempmonitorHost
                 toolStripStatusLabel_connection.Text = "Running";
 
                 byte[] outdata = new byte[8];
-                computer.Update();
 
-                outdata[1] = (byte) get_value(comboBox_Disp1Data.Text, 1);
-                outdata[2] = (byte) 11;
-                outdata[3] = (byte) 13;
-                outdata[4] = (byte) 32;
+                // Send data
+                outdata[1] = (byte) computer.get_value(comboBox_Disp1Data.Text, 1);
+                outdata[2] = (byte) computer.get_value(comboBox_Disp2Data.Text, 1);
+                outdata[3] = (byte) computer.get_value(comboBox_Disp3Data.Text, 1);
+                outdata[4] = (byte) computer.get_value(comboBox_Disp4Data.Text, 1);
 
                 HidReport report = new HidReport(8, new HidDeviceData(outdata, HidDeviceData.ReadStatus.NotConnected));
                 device.WriteFeatureData(outdata);
             }
-        }
-
-        private byte get_value(string resource, int display)
-        {
-            switch (resource)
-            {
-                case "CPU Temp":
-
-                    break;
-
-                case "CPU load":
-
-                    break;
-
-                case "GPU load":
-
-                    break;
-
-                case "GPU temp":
-
-                    break;
-
-                case "RAM usage":
-
-                    break;
-
-                case "Disc usage":
-
-                    break;
-
-                case "Fan speed":
-
-                    break;
-            }
-            return 0;
         }
     }
 }

@@ -99,5 +99,5 @@ namespace HID
         {
             return RAMUsage;
         }
-    }
+    }   
 }
