@@ -126,10 +126,10 @@ namespace TempmonitorHost
                     return CPULoad;
 
                 case "GPU load":
-                    break;
+                    return GPULoad;
 
                 case "GPU temp":
-                    break;
+                    return  GPUTemp;
 
                 case "RAM usage":
                     return RAMUsage;
