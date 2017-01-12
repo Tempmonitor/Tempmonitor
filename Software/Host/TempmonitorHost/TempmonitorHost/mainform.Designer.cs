@@ -136,7 +136,8 @@
             "GPU temp",
             "RAM usage",
             "Disc usage",
-            "Fan speed"});
+            "Fan speed",
+            "Battery"});
             this.comboBox_Disp1Data.Location = new System.Drawing.Point(61, 39);
             this.comboBox_Disp1Data.Name = "comboBox_Disp1Data";
             this.comboBox_Disp1Data.Size = new System.Drawing.Size(121, 21);
@@ -191,7 +192,8 @@
             "GPU temp",
             "RAM usage",
             "Disc usage",
-            "Fan speed"});
+            "Fan speed",
+            "Battery"});
             this.comboBox_Disp2Data.Location = new System.Drawing.Point(61, 66);
             this.comboBox_Disp2Data.Name = "comboBox_Disp2Data";
             this.comboBox_Disp2Data.Size = new System.Drawing.Size(121, 21);
@@ -227,7 +229,8 @@
             "GPU temp",
             "RAM usage",
             "Disc usage",
-            "Fan speed"});
+            "Fan speed",
+            "Battery"});
             this.comboBox_Disp3Data.Location = new System.Drawing.Point(61, 93);
             this.comboBox_Disp3Data.Name = "comboBox_Disp3Data";
             this.comboBox_Disp3Data.Size = new System.Drawing.Size(121, 21);
@@ -263,7 +266,8 @@
             "GPU temp",
             "RAM usage",
             "Disc usage",
-            "Fan speed"});
+            "Fan speed",
+            "Battery"});
             this.comboBox_Disp4Data.Location = new System.Drawing.Point(61, 120);
             this.comboBox_Disp4Data.Name = "comboBox_Disp4Data";
             this.comboBox_Disp4Data.Size = new System.Drawing.Size(121, 21);

@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using OpenHardwareMonitor.Hardware; 
+using OpenHardwareMonitor.Hardware;
+using System.Windows.Forms;
 
 namespace TempmonitorHost
 {
@@ -101,20 +102,6 @@ namespace TempmonitorHost
             }
         }
 
-
-        public float GetCPUTemp()
-        {
-            return CPUTemp;
-        }
-        public float GetCPULoad()
-        {
-            return CPULoad;
-        }
-        public float GetRAMUsage()
-        {
-            return RAMUsage;
-        }
-
         public float get_value(string resource, int display)
         {
             switch (resource)
@@ -139,6 +126,8 @@ namespace TempmonitorHost
 
                 case "Fan speed":
                     break;
+                case "Battery":
+                    return (SystemInformation.PowerStatus.BatteryLifePercent * 100);
             }
             return 0;
         }

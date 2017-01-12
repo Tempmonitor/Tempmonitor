@@ -16,8 +16,8 @@ namespace TempmonitorHost
     public partial class mainform : Form
     {
         // ID ---
-        private const int VendorId = 0x16c0;
-        private const int productId = 0x05df;
+        private const int VendorId = 0x1209;
+        private const int productId = 0x3452;
         // ID ---
 
         private ComputerInfo computer = new ComputerInfo();
@@ -123,10 +123,10 @@ namespace TempmonitorHost
             computer.Update();
 
             // Display sensor values in UI
-            label_Disp1Value.Text = computer.get_value(comboBox_Disp1Data.Text, 1).ToString();
-            label_Disp2Value.Text = computer.get_value(comboBox_Disp2Data.Text, 1).ToString();
-            label_Disp3Value.Text = computer.get_value(comboBox_Disp3Data.Text, 1).ToString();
-            label_Disp4Value.Text = computer.get_value(comboBox_Disp4Data.Text, 1).ToString();
+            label_Disp1Value.Text = ((int) computer.get_value(comboBox_Disp1Data.Text, 1)).ToString();
+            label_Disp2Value.Text = ((int) computer.get_value(comboBox_Disp2Data.Text, 1)).ToString();
+            label_Disp3Value.Text = ((int) computer.get_value(comboBox_Disp3Data.Text, 1)).ToString();
+            label_Disp4Value.Text = ((int) computer.get_value(comboBox_Disp4Data.Text, 1)).ToString();
 
             if (device == null || device.IsConnected == false)    // If no connection
             {
