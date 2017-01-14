@@ -131,6 +131,7 @@ namespace TempmonitorHost
             if (device == null || device.IsConnected == false)    // If no connection
             {
                 toolStripStatusLabel_connection.Text = "Disconnected";
+                notifyIcon.Text = "Disconnected";
 
                 device = HidDevices.Enumerate(VendorId, productId).FirstOrDefault();   // Retry connection
 
@@ -138,13 +139,12 @@ namespace TempmonitorHost
                 {
                     device.OpenDevice();
                     toolStripStatusLabel_connection.Text = "Connected";
+                    notifyIcon.Text = "Connected";
                 }
             }
 
             else   // Actual execution
             {
-                toolStripStatusLabel_connection.Text = "Running";
-
                 byte[] outdata = new byte[8];
 
                 // Send data
