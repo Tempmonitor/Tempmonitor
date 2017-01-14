@@ -16,7 +16,20 @@ namespace TempmonitorHost
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new mainform());
+            Form form = new mainform();
+
+            if (Properties.Settings.Default.FirstRun)
+            {
+                form.Show();
+
+                Autostart start = new Autostart();
+                start.CreateTask();
+
+                Properties.Settings.Default.FirstRun = false;
+                Properties.Settings.Default.Save();
+            }
+            
+            Application.Run();
         }
     }
 }

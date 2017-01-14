@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="AutoRun" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="EnableDisp1" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
@@ -34,6 +34,9 @@
     </Setting>
     <Setting Name="Brightness" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="FirstRun" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using HidLibrary;
-using Microsoft.Win32.TaskScheduler;
 
 namespace TempmonitorHost
 {
@@ -74,7 +73,7 @@ namespace TempmonitorHost
             }
 
             userSettingsWrite();
-            
+            Application.Exit();
         }
 
         private void userSettingsLoad()
@@ -161,25 +160,15 @@ namespace TempmonitorHost
 
         private void checkBox_Autostart_CheckedChanged(object sender, EventArgs e)
         {
-            TaskService ts = new TaskService();
+            Autostart start = new Autostart();
 
             if (checkBox_Autostart.Checked)
             {
-                // Add Task
-                TaskDefinition td = ts.NewTask();
-
-                td.RegistrationInfo.Description = "Autorun Temp monitor host application";
-                td.Triggers.Add(new LogonTrigger());
-                td.Actions.Add(new ExecAction(System.Reflection.Assembly.GetExecutingAssembly().Location));
-                td.Principal.RunLevel = TaskRunLevel.Highest;
-                td.Settings.DisallowStartIfOnBatteries = false;
-
-                ts.RootFolder.RegisterTaskDefinition("Temp monitor", td);
+                start.CreateTask();
             }
             else
             {
-                // Remove task
-                ts.RootFolder.DeleteTask("Temp monitor");
+                start.RemoveTask();
             }
         }
     }
