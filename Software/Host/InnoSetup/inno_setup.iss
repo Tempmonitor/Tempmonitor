@@ -26,12 +26,10 @@ OutputBaseFilename=Temp_monitor_{#MyAppVersion}_Setup_32-bit
 SetupIconFile={#SourcePath}\..\TempmonitorHost\TempmonitorHost\icon.ico
 Compression=lzma
 SolidCompression=yes
+LicenseFile=license.txt
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
-
-[Tasks]
-Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
 Source: "{#SourcePath}\..\TempmonitorHost\TempmonitorHost\bin\Release\TempmonitorHost.exe"; DestDir: "{app}"; Flags: ignoreversion
@@ -40,7 +38,6 @@ Source: "{#SourcePath}\..\TempmonitorHost\TempmonitorHost\bin\Release\*"; DestDi
 
 [Icons]
 Name: "{commonprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
-Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall shellexec skipifsilent
