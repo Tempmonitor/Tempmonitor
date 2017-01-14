@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using HidLibrary;
+using Microsoft.Win32.TaskScheduler;
 
 namespace TempmonitorHost
 {
@@ -155,6 +156,30 @@ namespace TempmonitorHost
 
                 HidReport report = new HidReport(8, new HidDeviceData(outdata, HidDeviceData.ReadStatus.NotConnected));
                 device.WriteFeatureData(outdata);
+            }
+        }
+
+        private void checkBox_Autostart_CheckedChanged(object sender, EventArgs e)
+        {
+            TaskService ts = new TaskService();
+
+            if (checkBox_Autostart.Checked)
+            {
+                // Add Task
+                TaskDefinition td = ts.NewTask();
+
+                td.RegistrationInfo.Description = "Autorun Temp monitor host application";
+                td.Triggers.Add(new LogonTrigger());
+                td.Actions.Add(new ExecAction(System.Reflection.Assembly.GetExecutingAssembly().Location));
+                td.Principal.RunLevel = TaskRunLevel.Highest;
+                td.Settings.DisallowStartIfOnBatteries = false;
+
+                ts.RootFolder.RegisterTaskDefinition("Temp monitor", td);
+            }
+            else
+            {
+                // Remove task
+                ts.RootFolder.DeleteTask("Temp monitor");
             }
         }
     }

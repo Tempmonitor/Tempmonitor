@@ -3,7 +3,7 @@ Temp monitor host software and everything in this or subfolders are licensed wit
 The OpenHardwareMonitor library is licensed with the mozilla public license version 2.0.
 and its license is included in its folder. 
 
-Included is also HidLibrary licensed with the MIT license and copyrighted 2010 by Ultraviolet Catastrophe.  
+Included is also HidLibrary copyrighted 2010 by Ultraviolet Catastrophe and Task Scheduler Managed Wrapper library copyrighted 2003-2010 by David Hall both licensed with the MIT license.  
 
 The following license applies unless otherwise written:
 

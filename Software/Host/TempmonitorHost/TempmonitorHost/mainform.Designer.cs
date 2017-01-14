@@ -292,6 +292,7 @@
             this.checkBox_Autostart.TabIndex = 14;
             this.checkBox_Autostart.Text = "Autostart";
             this.checkBox_Autostart.UseVisualStyleBackColor = true;
+            this.checkBox_Autostart.CheckedChanged += new System.EventHandler(this.checkBox_Autostart_CheckedChanged);
             // 
             // label_Disp1Value
             // 
