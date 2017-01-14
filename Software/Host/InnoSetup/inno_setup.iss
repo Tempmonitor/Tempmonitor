@@ -2,7 +2,7 @@
 #define MyAppVersion "1.0"
 #define MyAppPublisher "Temp monitor UF"
 #define MyAppURL "http://tempmonitor.se/"
-#define MyAppExeName "TempmonitorHost.exe"
+#define MyAppExeName "Temp monitor.exe"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
@@ -29,7 +29,7 @@ LicenseFile=license.txt
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Files]
-Source: "{#SourcePath}\..\TempmonitorHost\TempmonitorHost\bin\Release\TempmonitorHost.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#SourcePath}\..\TempmonitorHost\TempmonitorHost\bin\Release\Temp monitor.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#SourcePath}\..\TempmonitorHost\TempmonitorHost\bin\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 

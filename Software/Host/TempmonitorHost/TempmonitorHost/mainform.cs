@@ -33,7 +33,6 @@ namespace TempmonitorHost
 
         private void mainform_Load(object sender, EventArgs e)
         {
-            notifyIcon.ShowBalloonTip(5000, "Temp monitor", "Temp monitor is running.", ToolTipIcon.Info);
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -50,10 +49,7 @@ namespace TempmonitorHost
         {
 
             if (this.Visible)
-            {
                 this.Hide();
-                notifyIcon.ShowBalloonTip(5000, "Temp monitor", "Temp monitor is running in background.", ToolTipIcon.Info); 
-            }
             else
                 this.Show();
         }
