@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.7.0">
+<eagle version="7.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -146,7 +146,7 @@
 <wire x1="99" y1="49" x2="0" y2="49" width="0" layer="20"/>
 <wire x1="99" y1="49" x2="99" y2="0" width="0" layer="20"/>
 <wire x1="0" y1="49" x2="0" y2="0" width="0" layer="20"/>
-<text x="67.8514" y="2.6496" size="1.778" layer="22" rot="MR180">2016 Verison 1.0</text>
+<text x="67.8514" y="2.6496" size="1.778" layer="22" rot="MR180">2016 Version 1.0</text>
 <text x="43.95" y="2.5226" size="1.778" layer="22" rot="MR180">tempmonitor.se</text>
 </plain>
 <libraries>
