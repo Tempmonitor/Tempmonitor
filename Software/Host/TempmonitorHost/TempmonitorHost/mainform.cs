@@ -74,14 +74,9 @@ namespace TempmonitorHost
 
         private void userSettingsLoad()
         {
-            checkBox_Autostart.Checked = Properties.Settings.Default.AutoRun;
-            checkBox_Disp1Ena.Checked = Properties.Settings.Default.EnableDisp1;
-            checkBox_Disp2Ena.Checked = Properties.Settings.Default.EnableDisp2;
-            checkBox_Disp3Ena.Checked = Properties.Settings.Default.EnableDisp3;
-            checkBox_Disp4Ena.Checked = Properties.Settings.Default.EnableDisp4;
+            checkBox_Autostart.Checked = Properties.Settings.Default.AutoRun;;
             checkBox_ToggleDisplay.Checked = Properties.Settings.Default.DispOn;
             slider_Brightness.Value = Properties.Settings.Default.Brightness;
-
 
             comboBox_Disp1Data.Text = Properties.Settings.Default.Disp1Data;
             comboBox_Disp2Data.Text = Properties.Settings.Default.Disp2Data;
@@ -92,10 +87,6 @@ namespace TempmonitorHost
         private void userSettingsWrite()
         {
             Properties.Settings.Default.AutoRun = checkBox_Autostart.Checked;
-            Properties.Settings.Default.EnableDisp1 = checkBox_Disp1Ena.Checked;
-            Properties.Settings.Default.EnableDisp2 = checkBox_Disp2Ena.Checked;
-            Properties.Settings.Default.EnableDisp3 = checkBox_Disp3Ena.Checked;
-            Properties.Settings.Default.EnableDisp4 = checkBox_Disp4Ena.Checked;
             Properties.Settings.Default.DispOn = checkBox_ToggleDisplay.Checked;
             Properties.Settings.Default.Brightness = slider_Brightness.Value;
 
@@ -106,12 +97,6 @@ namespace TempmonitorHost
             Properties.Settings.Default.Disp4Data = comboBox_Disp4Data.Text;
 
             Properties.Settings.Default.Save();
-        }
-
-        private void button_RestoreDefaults_Click(object sender, EventArgs e)
-        {
-            Properties.Settings.Default.Reset();
-            userSettingsLoad();
         }
 
         private void timer_update_Tick(object sender, EventArgs e)

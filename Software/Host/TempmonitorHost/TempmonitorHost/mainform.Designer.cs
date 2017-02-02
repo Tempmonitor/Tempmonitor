@@ -40,17 +40,12 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comboBox_Disp1Data = new System.Windows.Forms.ComboBox();
             this.label_Disp1Num = new System.Windows.Forms.Label();
-            this.checkBox_Disp1Ena = new System.Windows.Forms.CheckBox();
-            this.checkBox_Disp2Ena = new System.Windows.Forms.CheckBox();
             this.label_Disp2Num = new System.Windows.Forms.Label();
             this.comboBox_Disp2Data = new System.Windows.Forms.ComboBox();
-            this.checkBox_Disp3Ena = new System.Windows.Forms.CheckBox();
             this.label_Disp3Num = new System.Windows.Forms.Label();
             this.comboBox_Disp3Data = new System.Windows.Forms.ComboBox();
-            this.checkBox_Disp4Ena = new System.Windows.Forms.CheckBox();
             this.label_Disp4Num = new System.Windows.Forms.Label();
             this.comboBox_Disp4Data = new System.Windows.Forms.ComboBox();
-            this.button_RestoreDefaults = new System.Windows.Forms.Button();
             this.checkBox_Autostart = new System.Windows.Forms.CheckBox();
             this.label_Disp1Value = new System.Windows.Forms.Label();
             this.label_Disp2Value = new System.Windows.Forms.Label();
@@ -58,7 +53,6 @@
             this.label_Disp4Value = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.checkBox_ToggleDisplay = new System.Windows.Forms.CheckBox();
-            this.button_about = new System.Windows.Forms.Button();
             this.slider_Brightness = new System.Windows.Forms.TrackBar();
             this.label_Brightness = new System.Windows.Forms.Label();
             this.statusStrip.SuspendLayout();
@@ -70,9 +64,9 @@
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel_connection});
-            this.statusStrip.Location = new System.Drawing.Point(0, 288);
+            this.statusStrip.Location = new System.Drawing.Point(0, 256);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(328, 22);
+            this.statusStrip.Size = new System.Drawing.Size(232, 22);
             this.statusStrip.SizingGrip = false;
             this.statusStrip.TabIndex = 0;
             this.statusStrip.Text = "statusStrip1";
@@ -138,7 +132,7 @@
             "Disc usage",
             "Fan speed",
             "Battery"});
-            this.comboBox_Disp1Data.Location = new System.Drawing.Point(61, 39);
+            this.comboBox_Disp1Data.Location = new System.Drawing.Point(61, 22);
             this.comboBox_Disp1Data.Name = "comboBox_Disp1Data";
             this.comboBox_Disp1Data.Size = new System.Drawing.Size(121, 21);
             this.comboBox_Disp1Data.TabIndex = 1;
@@ -146,36 +140,16 @@
             // label_Disp1Num
             // 
             this.label_Disp1Num.AutoSize = true;
-            this.label_Disp1Num.Location = new System.Drawing.Point(9, 43);
+            this.label_Disp1Num.Location = new System.Drawing.Point(9, 26);
             this.label_Disp1Num.Name = "label_Disp1Num";
             this.label_Disp1Num.Size = new System.Drawing.Size(50, 13);
             this.label_Disp1Num.TabIndex = 2;
             this.label_Disp1Num.Text = "Display 1";
             // 
-            // checkBox_Disp1Ena
-            // 
-            this.checkBox_Disp1Ena.AutoSize = true;
-            this.checkBox_Disp1Ena.Location = new System.Drawing.Point(199, 42);
-            this.checkBox_Disp1Ena.Name = "checkBox_Disp1Ena";
-            this.checkBox_Disp1Ena.Size = new System.Drawing.Size(59, 17);
-            this.checkBox_Disp1Ena.TabIndex = 3;
-            this.checkBox_Disp1Ena.Text = "Enable";
-            this.checkBox_Disp1Ena.UseVisualStyleBackColor = true;
-            // 
-            // checkBox_Disp2Ena
-            // 
-            this.checkBox_Disp2Ena.AutoSize = true;
-            this.checkBox_Disp2Ena.Location = new System.Drawing.Point(199, 69);
-            this.checkBox_Disp2Ena.Name = "checkBox_Disp2Ena";
-            this.checkBox_Disp2Ena.Size = new System.Drawing.Size(59, 17);
-            this.checkBox_Disp2Ena.TabIndex = 6;
-            this.checkBox_Disp2Ena.Text = "Enable";
-            this.checkBox_Disp2Ena.UseVisualStyleBackColor = true;
-            // 
             // label_Disp2Num
             // 
             this.label_Disp2Num.AutoSize = true;
-            this.label_Disp2Num.Location = new System.Drawing.Point(9, 70);
+            this.label_Disp2Num.Location = new System.Drawing.Point(9, 53);
             this.label_Disp2Num.Name = "label_Disp2Num";
             this.label_Disp2Num.Size = new System.Drawing.Size(50, 13);
             this.label_Disp2Num.TabIndex = 5;
@@ -194,25 +168,15 @@
             "Disc usage",
             "Fan speed",
             "Battery"});
-            this.comboBox_Disp2Data.Location = new System.Drawing.Point(61, 66);
+            this.comboBox_Disp2Data.Location = new System.Drawing.Point(61, 49);
             this.comboBox_Disp2Data.Name = "comboBox_Disp2Data";
             this.comboBox_Disp2Data.Size = new System.Drawing.Size(121, 21);
             this.comboBox_Disp2Data.TabIndex = 4;
             // 
-            // checkBox_Disp3Ena
-            // 
-            this.checkBox_Disp3Ena.AutoSize = true;
-            this.checkBox_Disp3Ena.Location = new System.Drawing.Point(199, 96);
-            this.checkBox_Disp3Ena.Name = "checkBox_Disp3Ena";
-            this.checkBox_Disp3Ena.Size = new System.Drawing.Size(59, 17);
-            this.checkBox_Disp3Ena.TabIndex = 9;
-            this.checkBox_Disp3Ena.Text = "Enable";
-            this.checkBox_Disp3Ena.UseVisualStyleBackColor = true;
-            // 
             // label_Disp3Num
             // 
             this.label_Disp3Num.AutoSize = true;
-            this.label_Disp3Num.Location = new System.Drawing.Point(9, 97);
+            this.label_Disp3Num.Location = new System.Drawing.Point(9, 80);
             this.label_Disp3Num.Name = "label_Disp3Num";
             this.label_Disp3Num.Size = new System.Drawing.Size(50, 13);
             this.label_Disp3Num.TabIndex = 8;
@@ -231,25 +195,15 @@
             "Disc usage",
             "Fan speed",
             "Battery"});
-            this.comboBox_Disp3Data.Location = new System.Drawing.Point(61, 93);
+            this.comboBox_Disp3Data.Location = new System.Drawing.Point(61, 76);
             this.comboBox_Disp3Data.Name = "comboBox_Disp3Data";
             this.comboBox_Disp3Data.Size = new System.Drawing.Size(121, 21);
             this.comboBox_Disp3Data.TabIndex = 7;
             // 
-            // checkBox_Disp4Ena
-            // 
-            this.checkBox_Disp4Ena.AutoSize = true;
-            this.checkBox_Disp4Ena.Location = new System.Drawing.Point(199, 123);
-            this.checkBox_Disp4Ena.Name = "checkBox_Disp4Ena";
-            this.checkBox_Disp4Ena.Size = new System.Drawing.Size(59, 17);
-            this.checkBox_Disp4Ena.TabIndex = 12;
-            this.checkBox_Disp4Ena.Text = "Enable";
-            this.checkBox_Disp4Ena.UseVisualStyleBackColor = true;
-            // 
             // label_Disp4Num
             // 
             this.label_Disp4Num.AutoSize = true;
-            this.label_Disp4Num.Location = new System.Drawing.Point(9, 124);
+            this.label_Disp4Num.Location = new System.Drawing.Point(9, 107);
             this.label_Disp4Num.Name = "label_Disp4Num";
             this.label_Disp4Num.Size = new System.Drawing.Size(50, 13);
             this.label_Disp4Num.TabIndex = 11;
@@ -268,25 +222,15 @@
             "Disc usage",
             "Fan speed",
             "Battery"});
-            this.comboBox_Disp4Data.Location = new System.Drawing.Point(61, 120);
+            this.comboBox_Disp4Data.Location = new System.Drawing.Point(61, 103);
             this.comboBox_Disp4Data.Name = "comboBox_Disp4Data";
             this.comboBox_Disp4Data.Size = new System.Drawing.Size(121, 21);
             this.comboBox_Disp4Data.TabIndex = 10;
             // 
-            // button_RestoreDefaults
-            // 
-            this.button_RestoreDefaults.Location = new System.Drawing.Point(12, 172);
-            this.button_RestoreDefaults.Name = "button_RestoreDefaults";
-            this.button_RestoreDefaults.Size = new System.Drawing.Size(75, 23);
-            this.button_RestoreDefaults.TabIndex = 13;
-            this.button_RestoreDefaults.Text = "Defaults";
-            this.button_RestoreDefaults.UseVisualStyleBackColor = true;
-            this.button_RestoreDefaults.Click += new System.EventHandler(this.button_RestoreDefaults_Click);
-            // 
             // checkBox_Autostart
             // 
             this.checkBox_Autostart.AutoSize = true;
-            this.checkBox_Autostart.Location = new System.Drawing.Point(122, 208);
+            this.checkBox_Autostart.Location = new System.Drawing.Point(12, 174);
             this.checkBox_Autostart.Name = "checkBox_Autostart";
             this.checkBox_Autostart.Size = new System.Drawing.Size(68, 17);
             this.checkBox_Autostart.TabIndex = 14;
@@ -297,7 +241,7 @@
             // label_Disp1Value
             // 
             this.label_Disp1Value.AutoSize = true;
-            this.label_Disp1Value.Location = new System.Drawing.Point(282, 46);
+            this.label_Disp1Value.Location = new System.Drawing.Point(199, 34);
             this.label_Disp1Value.Name = "label_Disp1Value";
             this.label_Disp1Value.Size = new System.Drawing.Size(13, 13);
             this.label_Disp1Value.TabIndex = 16;
@@ -306,7 +250,7 @@
             // label_Disp2Value
             // 
             this.label_Disp2Value.AutoSize = true;
-            this.label_Disp2Value.Location = new System.Drawing.Point(282, 70);
+            this.label_Disp2Value.Location = new System.Drawing.Point(199, 58);
             this.label_Disp2Value.Name = "label_Disp2Value";
             this.label_Disp2Value.Size = new System.Drawing.Size(13, 13);
             this.label_Disp2Value.TabIndex = 17;
@@ -315,7 +259,7 @@
             // label_Disp3Value
             // 
             this.label_Disp3Value.AutoSize = true;
-            this.label_Disp3Value.Location = new System.Drawing.Point(282, 97);
+            this.label_Disp3Value.Location = new System.Drawing.Point(199, 85);
             this.label_Disp3Value.Name = "label_Disp3Value";
             this.label_Disp3Value.Size = new System.Drawing.Size(13, 13);
             this.label_Disp3Value.TabIndex = 18;
@@ -324,7 +268,7 @@
             // label_Disp4Value
             // 
             this.label_Disp4Value.AutoSize = true;
-            this.label_Disp4Value.Location = new System.Drawing.Point(282, 123);
+            this.label_Disp4Value.Location = new System.Drawing.Point(199, 111);
             this.label_Disp4Value.Name = "label_Disp4Value";
             this.label_Disp4Value.Size = new System.Drawing.Size(13, 13);
             this.label_Disp4Value.TabIndex = 19;
@@ -333,7 +277,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(271, 23);
+            this.label10.Location = new System.Drawing.Point(188, 11);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(34, 13);
             this.label10.TabIndex = 20;
@@ -342,27 +286,18 @@
             // checkBox_ToggleDisplay
             // 
             this.checkBox_ToggleDisplay.AutoSize = true;
-            this.checkBox_ToggleDisplay.Location = new System.Drawing.Point(122, 177);
+            this.checkBox_ToggleDisplay.Location = new System.Drawing.Point(12, 143);
             this.checkBox_ToggleDisplay.Name = "checkBox_ToggleDisplay";
             this.checkBox_ToggleDisplay.Size = new System.Drawing.Size(110, 17);
             this.checkBox_ToggleDisplay.TabIndex = 21;
             this.checkBox_ToggleDisplay.Text = "Display ON / OFF";
             this.checkBox_ToggleDisplay.UseVisualStyleBackColor = true;
             // 
-            // button_about
-            // 
-            this.button_about.Location = new System.Drawing.Point(12, 204);
-            this.button_about.Name = "button_about";
-            this.button_about.Size = new System.Drawing.Size(75, 23);
-            this.button_about.TabIndex = 22;
-            this.button_about.Text = "About";
-            this.button_about.UseVisualStyleBackColor = true;
-            // 
             // slider_Brightness
             // 
             this.slider_Brightness.BackColor = System.Drawing.SystemColors.Control;
             this.slider_Brightness.LargeChange = 1;
-            this.slider_Brightness.Location = new System.Drawing.Point(86, 241);
+            this.slider_Brightness.Location = new System.Drawing.Point(71, 204);
             this.slider_Brightness.Maximum = 5;
             this.slider_Brightness.Minimum = 1;
             this.slider_Brightness.Name = "slider_Brightness";
@@ -373,7 +308,7 @@
             // label_Brightness
             // 
             this.label_Brightness.AutoSize = true;
-            this.label_Brightness.Location = new System.Drawing.Point(12, 250);
+            this.label_Brightness.Location = new System.Drawing.Point(9, 204);
             this.label_Brightness.Name = "label_Brightness";
             this.label_Brightness.Size = new System.Drawing.Size(56, 13);
             this.label_Brightness.TabIndex = 24;
@@ -383,10 +318,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(328, 310);
+            this.ClientSize = new System.Drawing.Size(232, 278);
             this.Controls.Add(this.label_Brightness);
             this.Controls.Add(this.slider_Brightness);
-            this.Controls.Add(this.button_about);
             this.Controls.Add(this.checkBox_ToggleDisplay);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label_Disp4Value);
@@ -394,17 +328,12 @@
             this.Controls.Add(this.label_Disp2Value);
             this.Controls.Add(this.label_Disp1Value);
             this.Controls.Add(this.checkBox_Autostart);
-            this.Controls.Add(this.button_RestoreDefaults);
-            this.Controls.Add(this.checkBox_Disp4Ena);
             this.Controls.Add(this.label_Disp4Num);
             this.Controls.Add(this.comboBox_Disp4Data);
-            this.Controls.Add(this.checkBox_Disp3Ena);
             this.Controls.Add(this.label_Disp3Num);
             this.Controls.Add(this.comboBox_Disp3Data);
-            this.Controls.Add(this.checkBox_Disp2Ena);
             this.Controls.Add(this.label_Disp2Num);
             this.Controls.Add(this.comboBox_Disp2Data);
-            this.Controls.Add(this.checkBox_Disp1Ena);
             this.Controls.Add(this.label_Disp1Num);
             this.Controls.Add(this.comboBox_Disp1Data);
             this.Controls.Add(this.statusStrip);
@@ -437,17 +366,12 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_connection;
         private System.Windows.Forms.ComboBox comboBox_Disp1Data;
         private System.Windows.Forms.Label label_Disp1Num;
-        private System.Windows.Forms.CheckBox checkBox_Disp1Ena;
-        private System.Windows.Forms.CheckBox checkBox_Disp2Ena;
         private System.Windows.Forms.Label label_Disp2Num;
         private System.Windows.Forms.ComboBox comboBox_Disp2Data;
-        private System.Windows.Forms.CheckBox checkBox_Disp3Ena;
         private System.Windows.Forms.Label label_Disp3Num;
         private System.Windows.Forms.ComboBox comboBox_Disp3Data;
-        private System.Windows.Forms.CheckBox checkBox_Disp4Ena;
         private System.Windows.Forms.Label label_Disp4Num;
         private System.Windows.Forms.ComboBox comboBox_Disp4Data;
-        private System.Windows.Forms.Button button_RestoreDefaults;
         private System.Windows.Forms.CheckBox checkBox_Autostart;
         private System.Windows.Forms.Label label_Disp1Value;
         private System.Windows.Forms.Label label_Disp2Value;
@@ -455,7 +379,6 @@
         private System.Windows.Forms.Label label_Disp4Value;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.CheckBox checkBox_ToggleDisplay;
-        private System.Windows.Forms.Button button_about;
         private System.Windows.Forms.TrackBar slider_Brightness;
         private System.Windows.Forms.Label label_Brightness;
     }
