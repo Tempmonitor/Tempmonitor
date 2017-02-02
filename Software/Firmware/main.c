@@ -178,6 +178,7 @@ int main(void)
 
         if(received != 0)
         {
+            DisplayBrightness(inBuffer[1]);
             DisplayWriteRaw(0, &inBuffer[2]);
             DisplayWriteRaw(0, &inBuffer[5]);
             DisplayWriteRaw(0, &inBuffer[8]);
