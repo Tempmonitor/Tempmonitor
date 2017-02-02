@@ -178,10 +178,10 @@ int main(void)
 
         if(received != 0)
         {
-            DisplayWrite(0,inBuffer[0]);
-            DisplayWrite(1,inBuffer[1]);
-            DisplayWrite(2,inBuffer[2]);
-            DisplayWrite(3,inBuffer[3]);
+            DisplayWriteRaw(0, &inBuffer[2]);
+            DisplayWriteRaw(0, &inBuffer[5]);
+            DisplayWriteRaw(0, &inBuffer[8]);
+            DisplayWriteRaw(0, &inBuffer[11]);
 
             received = 0;
         }
