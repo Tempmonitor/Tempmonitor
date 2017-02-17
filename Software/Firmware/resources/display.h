@@ -54,11 +54,11 @@ void DisplayInit()
 {
     //Configure interrupts
         sei();  //Global interrupts enable
-        TIMSK |= 1 << TOIE1; //Enable Timer1 Overflow
+        TIMSK |= 1 << TOIE1 | 1 << OCIE1A; //Enable Timer1 Overflow and compare match A
 
     //Configure timer1
-        PLLCSR &= ~(1 << PCKE); //Timer0 clock source as system clock
-        TCCR1 |= 1 << CS13 | 1 << CS10;
+        PLLCSR &= ~(1 << PCKE);         //System clock as Timer0 clock source
+        TCCR1 |= 1 << CS13 | 1 << CS10; //Div 256
 }
 
 void DisplayWrite(unsigned char display_number, unsigned int value)
@@ -103,12 +103,28 @@ void DisplayUpdateRawBuffer()
         display_column = 2;
 }
 
+void DisplayBrightness(unsigned char brightness)
+{
+    OCR1A = brightness;
+}
+
+//Called when Timer1 overflows, used to multiplex the displays
 ISR(TIMER1_OVF_vect)
 {
     sei();
     //Shift out raw buffer
     DisplayUpdateRawBuffer();
     ShiftOutBytes(display_raw_buffer, 5);
+    ShiftOutUpdate();
+}
+
+//Called when a compare match between Timer1 and OCR1A occurs. Turns of the display to change brightness.
+ISR(TIMER1_COMPA_vect)
+{
+    sei();
+
+    //Disconnect all segments from ground
+    ShiftOutByte(0);
     ShiftOutUpdate();
 }
 
