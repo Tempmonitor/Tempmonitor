@@ -43,7 +43,6 @@ const uchar display_map[] = {
     _a | _b | _c,                       // 7
     _a | _b | _c | _d | _e | _f | _g,   // 8
     _a | _f | _b | _g | _c | _d,        // 9
-    _a | _f | _g | _b | _e | _d | _c    // 0
 };
 
 unsigned char display_raw_buffer[5];
@@ -59,6 +58,7 @@ void DisplayInit()
     //Configure timer1
         PLLCSR &= ~(1 << PCKE);         //System clock as Timer0 clock source
         TCCR1 |= 1 << CS13 | 1 << CS10; //Div 256
+        OCR1A = 100;
 }
 
 void DisplayWrite(unsigned char display_number, unsigned int value)
@@ -106,7 +106,25 @@ void DisplayUpdateRawBuffer()
 void DisplayBrightness(unsigned char brightness)
 {
     OCR1A = brightness;
+
+    if(brightness > 9)
+    {
+        //Start Timer0
+        TCCR1 |= 1 << CS13 | 1 << CS10;
+    }
+    else
+    {
+        //Stop Timer0
+        TCCR1 &= ~(1 << CS13) & ~(1 << CS10);
+
+        //Shift out 0 to turn of displays
+        ShiftOutByte(0);
+        ShiftOutUpdate();
+    }
+
 }
+
+
 
 //Called when Timer1 overflows, used to multiplex the displays
 ISR(TIMER1_OVF_vect)

@@ -151,7 +151,8 @@ void hadUsbReset() {
 
 int main(void)
 {
-    wdt_enable(WDTO_1S);
+    //wdt_enable(WDTO_1S);
+wdt_disable();
 
     //Init IO
 	SHIFT_DDR |= 1 << CLOCK_PIN | 1 << DATA_PIN | 1 << LATCH_PIN;
@@ -163,13 +164,8 @@ int main(void)
     usbDeviceConnect();
     sei();
 
-    uint8_t g[] = {display_map[3] | _dp, display_map[1], display_map[4]};
-
-    DisplayWriteRaw(0,g);
-    DisplayWrite(1,159);
-    DisplayWrite(2,265);
-    DisplayWrite(3,359);
     DisplayInit();
+    DisplayBrightness(0);
 
 	received = 0;
 
@@ -179,10 +175,10 @@ int main(void)
         if(received != 0)
         {
             DisplayBrightness(inBuffer[1]);
-            DisplayWriteRaw(0, &inBuffer[2]);
-            DisplayWriteRaw(0, &inBuffer[5]);
-            DisplayWriteRaw(0, &inBuffer[8]);
-            DisplayWriteRaw(0, &inBuffer[11]);
+            DisplayWrite(0, inBuffer[2]);
+            DisplayWrite(1, inBuffer[3]);
+            DisplayWrite(2, inBuffer[4]);
+            DisplayWrite(3, inBuffer[5]);
 
             received = 0;
         }
