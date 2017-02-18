@@ -129,10 +129,25 @@ namespace TempmonitorHost
                 byte[] outdata = new byte[8];
 
                 // Send data
-                outdata[1] = (byte) computer.get_value(comboBox_Disp1Data.Text, 1);
-                outdata[2] = (byte) computer.get_value(comboBox_Disp2Data.Text, 1);
-                outdata[3] = (byte) computer.get_value(comboBox_Disp3Data.Text, 1);
-                outdata[4] = (byte) computer.get_value(comboBox_Disp4Data.Text, 1);
+                outdata[2] = (byte) slider_Brightness.Value;
+                outdata[3] = (byte) computer.get_value(comboBox_Disp1Data.Text, 1);
+                outdata[4] = (byte) computer.get_value(comboBox_Disp2Data.Text, 1);
+                outdata[5] = (byte) computer.get_value(comboBox_Disp3Data.Text, 1);
+                outdata[6] = (byte) computer.get_value(comboBox_Disp4Data.Text, 1);
+               
+                // Can't send zeros, convert these to 255 instead 
+                for(int x = 0; x != 8; x++)
+                {
+                    if(outdata[x] == 0)
+                    {
+                        outdata[x] = 255;
+                    }
+                }
+
+                if(!checkBox_ToggleDisplay.Checked)
+                {
+                    outdata[2] = 5;
+                }
 
                 HidReport report = new HidReport(8, new HidDeviceData(outdata, HidDeviceData.ReadStatus.NotConnected));
                 device.WriteFeatureData(outdata);

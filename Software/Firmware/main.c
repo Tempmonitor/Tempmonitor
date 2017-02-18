@@ -173,8 +173,15 @@ wdt_disable();
         wdt_reset();
 
         if(received != 0)
-        {
-            DisplayBrightness(inBuffer[1]);
+        {			
+			//Convert 255 into zeros (Computer can't send zeros)
+			for(uchar x = 0; x != 8; x++)
+			{
+				if(inBuffer[x] == 255)
+					inBuffer[x] = 0;
+			}
+			
+			DisplayBrightness(inBuffer[1]);
             DisplayWrite(0, inBuffer[2]);
             DisplayWrite(1, inBuffer[3]);
             DisplayWrite(2, inBuffer[4]);

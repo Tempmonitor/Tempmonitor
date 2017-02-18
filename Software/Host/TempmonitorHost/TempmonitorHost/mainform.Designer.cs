@@ -297,13 +297,14 @@
             // 
             this.slider_Brightness.BackColor = System.Drawing.SystemColors.Control;
             this.slider_Brightness.LargeChange = 1;
-            this.slider_Brightness.Location = new System.Drawing.Point(71, 204);
-            this.slider_Brightness.Maximum = 5;
-            this.slider_Brightness.Minimum = 1;
+            this.slider_Brightness.Location = new System.Drawing.Point(71, 197);
+            this.slider_Brightness.Maximum = 250;
+            this.slider_Brightness.Minimum = 5;
             this.slider_Brightness.Name = "slider_Brightness";
             this.slider_Brightness.Size = new System.Drawing.Size(104, 45);
             this.slider_Brightness.TabIndex = 23;
-            this.slider_Brightness.Value = 3;
+            this.slider_Brightness.TickFrequency = 25;
+            this.slider_Brightness.Value = 5;
             // 
             // label_Brightness
             // 
