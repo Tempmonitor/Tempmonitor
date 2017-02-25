@@ -152,7 +152,7 @@ void hadUsbReset() {
 int main(void)
 {
     //wdt_enable(WDTO_1S);
-wdt_disable();
+    wdt_disable();
 
     //Init IO
 	SHIFT_DDR |= 1 << CLOCK_PIN | 1 << DATA_PIN | 1 << LATCH_PIN;
@@ -165,22 +165,32 @@ wdt_disable();
     sei();
 
     DisplayInit();
-    DisplayBrightness(0);
+
+    DisplayWrite(0,123);
+    DisplayWrite(1,456);
+    DisplayWrite(2,789);
+    DisplayWrite(3,012);
+    DisplayBrightness(250);
 
 	received = 0;
+
+	int connectionTimeout = 30000;
 
     for(;;){
         wdt_reset();
 
         if(received != 0)
-        {			
+        {
+			//Reset the connection timeout counting
+			connectionTimeout = 30000;
+
 			//Convert 255 into zeros (Computer can't send zeros)
 			for(uchar x = 0; x != 8; x++)
 			{
 				if(inBuffer[x] == 255)
 					inBuffer[x] = 0;
 			}
-			
+
 			DisplayBrightness(inBuffer[1]);
             DisplayWrite(0, inBuffer[2]);
             DisplayWrite(1, inBuffer[3]);
@@ -190,6 +200,16 @@ wdt_disable();
             received = 0;
         }
 
+        //Turn of display on connection timeout
+        if(connectionTimeout == 0)
+        {
+            DisplayBrightness(0);
+        }
+        else
+        {
+            connectionTimeout--;
+        }
+        _delay_us(50);
         usbPoll();
     }
     return 0;
